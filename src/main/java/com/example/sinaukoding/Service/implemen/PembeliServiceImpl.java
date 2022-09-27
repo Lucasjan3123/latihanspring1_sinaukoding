@@ -1,32 +1,37 @@
 package com.example.sinaukoding.Service.implemen;
 
-import com.example.sinaukoding.Entity.pembeli;
+import com.example.sinaukoding.Entity.Mapping.PembeliMapping;
+import com.example.sinaukoding.Entity.dto.PembeliDTO;
+import com.example.sinaukoding.Entity.Pembeli;
 import com.example.sinaukoding.Repository.PembeliRepository;
 import com.example.sinaukoding.Service.PembeliService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+@Service
 public class PembeliServiceImpl implements PembeliService {
     @Autowired
     private PembeliRepository repository;
 
 
     @Override
-    public pembeli save(pembeli param) {
-        return repository.save(param);
+    public PembeliDTO save(PembeliDTO param) {
+        Pembeli data = repository.save(PembeliMapping.instance.toEntity(param));
+        return PembeliMapping.instance.toDto(data);
+
 
     }
 
     @Override
-    public List<pembeli> findAllData() {
-        return repository.findAll();
+    public List<PembeliDTO> findAllData() {
+        return PembeliMapping.instance.toListDto(repository.findAll());
 
     }
 
     @Override
-    public pembeli update(pembeli param, Integer id_pembeli) {
-        pembeli data = repository.findById(id_pembeli).orElse(null);
+    public PembeliDTO update(PembeliDTO param, Integer id_pembeli) {
+        Pembeli data = repository.findById(id_pembeli).orElse(null);
 
         if (data != null) {
             data.setNama_pembeli(param.getNama_pembeli() == null ? data.getNama_pembeli() : param.getNama_pembeli());
@@ -35,15 +40,15 @@ public class PembeliServiceImpl implements PembeliService {
             data.setAlamat(param.getAlamat() != null ? param.getAlamat() : data.getAlamat());
 
 
-            return repository.save(data);
+            return PembeliMapping.instance.toDto(repository.save(data));
         }
 
-        return data;
+        return PembeliMapping.instance.toDto(data);
     }
 
     @Override
     public Boolean delete(Integer id_pembeli) {
-        pembeli data = repository.findById(id_pembeli).orElse(null);
+        Pembeli data = repository.findById(id_pembeli).orElse(null);
 
         if (data != null){
             repository.delete(data);
@@ -54,8 +59,8 @@ public class PembeliServiceImpl implements PembeliService {
     }
 
     @Override
-    public pembeli findById(Integer id_pembeli) {
-        return repository.findById(id_pembeli).orElse(null);
+    public PembeliDTO findById(Integer id_pembeli) {
+        return PembeliMapping.instance.toDto (repository.findById(id_pembeli).orElse(null));
 
     }
 }

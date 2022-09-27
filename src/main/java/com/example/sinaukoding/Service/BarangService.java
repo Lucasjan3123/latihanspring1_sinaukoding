@@ -1,16 +1,16 @@
 package com.example.sinaukoding.Service;
-import com.example.sinaukoding.Entity.Barang;
+import com.example.sinaukoding.Entity.dto.BarangDTO;
 
 import java.util.List;
 
 public interface BarangService {
-    Barang save(Barang param);
+    BarangDTO save(BarangDTO param);
 
-    List<Barang> findAllData();
+    List<BarangDTO> findAllData();
 
-    Barang update(Barang param, Integer id_barang);
+    BarangDTO update(BarangDTO param, Integer id_barang);
 
     Boolean delete(Integer id_barang);
 
-    Barang findById(Integer id_barang);
+    BarangDTO findById(Integer id_barang);
 }

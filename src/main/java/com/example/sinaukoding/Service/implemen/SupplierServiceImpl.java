@@ -1,31 +1,37 @@
 package com.example.sinaukoding.Service.implemen;
 
+import com.example.sinaukoding.Entity.Mapping.PembeliMapping;
+import com.example.sinaukoding.Entity.Mapping.SupplierMapping;
+import com.example.sinaukoding.Entity.Pembeli;
 import com.example.sinaukoding.Entity.Supplier;
+import com.example.sinaukoding.Entity.dto.SupplierDTO;
 import com.example.sinaukoding.Repository.SupplierRepository;
 import com.example.sinaukoding.Service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class SupplierServiceImpl implements SupplierService {
     @Autowired
     private SupplierRepository repository;
 
     @Override
-    public Supplier save(Supplier param) {
-        return repository.save(param);
+    public SupplierDTO save(SupplierDTO param) {
+        Supplier data = repository.save(SupplierMapping.instance.toEntity(param));
+        return SupplierMapping.instance.toDto(data);
 
     }
 
     @Override
-    public List<Supplier> findAllData() {
-        return repository.findAll();
+    public List<SupplierDTO> findAllData() {
+        return SupplierMapping.instance.toListDto(repository.findAll());
+
 
     }
 
     @Override
-    public Supplier update(Supplier param, Integer id_supplier) {
+    public SupplierDTO update(SupplierDTO param, Integer id_supplier) {
         Supplier data = repository.findById(id_supplier).orElse(null);
 
         if (data != null) {
@@ -34,10 +40,12 @@ public class SupplierServiceImpl implements SupplierService {
             data.setAlamat(param.getAlamat() != null ? param.getAlamat() : data.getAlamat());
 
 
-            return repository.save(data);
+            return SupplierMapping.instance.toDto(repository.save(data));
+
         }
 
-        return data;
+        return SupplierMapping.instance.toDto(data);
+
     }
 
     @Override
@@ -53,8 +61,8 @@ public class SupplierServiceImpl implements SupplierService {
     }
 
     @Override
-    public Supplier findById(Integer id_supplier) {
-        return repository.findById(id_supplier).orElse(null);
+    public SupplierDTO findById(Integer id_supplier) {
+        return SupplierMapping.instance.toDto (repository.findById(id_supplier).orElse(null));
 
     }
 }
