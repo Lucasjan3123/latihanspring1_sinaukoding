@@ -8,19 +8,22 @@ import org.hibernate.type.descriptor.sql.VarcharTypeDescriptor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "supplier")
+@Table(name = "pembeli")
 @Getter
 @Setter
 @NoArgsConstructor
-public class Supplier {
+public class Pembeli {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_supplier;
+    private Integer id_pembeli;
+
     @Column
-    private VarcharTypeDescriptor nama_supplier;
+    private VarcharTypeDescriptor nama_pembeli;
+    @Column
+    private Character jk;
     @Column
     private Character no_telp;
     @Column
-    private VarcharTypeDescriptor alamat;
+    private String alamat;
 
 }

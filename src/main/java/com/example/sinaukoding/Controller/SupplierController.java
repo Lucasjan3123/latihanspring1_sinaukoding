@@ -1,15 +1,15 @@
-package com.example.sinaukoding.Controller;
+package com.example.Sinaukoding.Controller;
 
 import com.example.sinaukoding.Entity.Supplier;
+import com.example.sinaukoding.Entity.dto.SupplierDTO;
 import com.example.sinaukoding.Service.implemen.SupplierServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@SuppressWarnings("ALL")
 @RestController
-@RequestMapping("/barang")
+@RequestMapping("/supplier")
 public class SupplierController
 {
     @Autowired
@@ -21,14 +21,14 @@ public class SupplierController
     }
 
     @PostMapping("/create")
-    public ResponseEntity<?> saveData(@RequestBody Supplier param){
+    public ResponseEntity<?> saveData(@RequestBody SupplierDTO param){
         return new ResponseEntity<>(Service.save(param), HttpStatus.OK);
     }
 
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateData(@PathVariable Integer id_supplier,
-                                        @RequestBody Supplier param){
-        Supplier data = Service.update(param, id_supplier);
+                                        @RequestBody SupplierDTO param){
+        SupplierDTO data = Service.update(param, id_supplier);
 
         if (data != null) {
             return new ResponseEntity<>(data, HttpStatus.OK);

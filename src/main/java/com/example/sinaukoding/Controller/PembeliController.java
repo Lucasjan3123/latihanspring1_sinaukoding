@@ -1,15 +1,14 @@
 package com.example.sinaukoding.Controller;
 
-import com.example.sinaukoding.Entity.pembeli;
+import com.example.sinaukoding.Entity.dto.PembeliDTO;
 import com.example.sinaukoding.Service.implemen.PembeliServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@SuppressWarnings("ALL")
 @RestController
-@RequestMapping("/barang")
+@RequestMapping("/pembeli")
 public class PembeliController {
     @Autowired
     private PembeliServiceImpl Service;
@@ -20,14 +19,14 @@ public class PembeliController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<?> saveData(@RequestBody pembeli param){
+    public ResponseEntity<?> saveData(@RequestBody PembeliDTO param){
         return new ResponseEntity<>(Service.save(param), HttpStatus.OK);
     }
 
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateData(@PathVariable Integer id_pembeli,
-                                        @RequestBody pembeli param){
-       pembeli data = Service.update(param, id_pembeli);
+                                        @RequestBody PembeliDTO param){
+       PembeliDTO data = Service.update(param, id_pembeli);
 
         if (data != null) {
             return new ResponseEntity<>(data, HttpStatus.OK);

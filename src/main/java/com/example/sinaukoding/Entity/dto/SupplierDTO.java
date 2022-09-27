@@ -1,26 +1,13 @@
-package com.example.sinaukoding.Entity;
+package com.example.sinaukoding.Entity.dto;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.type.descriptor.sql.VarcharTypeDescriptor;
-
-import javax.persistence.*;
-
-@Entity
-@Table(name = "supplier")
 @Getter
 @Setter
-@NoArgsConstructor
-public class Supplier {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class SupplierDTO {
     private Integer id_supplier;
-    @Column
     private VarcharTypeDescriptor nama_supplier;
-    @Column
     private Character no_telp;
-    @Column
     private VarcharTypeDescriptor alamat;
-
 }

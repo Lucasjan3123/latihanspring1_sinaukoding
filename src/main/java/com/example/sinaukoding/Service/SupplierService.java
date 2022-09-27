@@ -1,16 +1,16 @@
 package com.example.sinaukoding.Service;
-import com.example.sinaukoding.Entity.Supplier;
+import com.example.sinaukoding.Entity.dto.SupplierDTO;
 
 import java.util.List;
 
 public interface SupplierService {
-    Supplier save(Supplier param);
+    SupplierDTO save(SupplierDTO param);
 
-    List<Supplier> findAllData();
+    List<SupplierDTO> findAllData();
 
-    Supplier update(Supplier param, Integer id_supplier);
+    SupplierDTO update(SupplierDTO param, Integer id_supplier);
 
     Boolean delete(Integer id_supplier);
 
-    Supplier findById(Integer id_supplier);
+    SupplierDTO findById(Integer id_supplier);
 }
