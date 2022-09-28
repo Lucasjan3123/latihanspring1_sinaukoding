@@ -36,7 +36,7 @@ public class PembeliServiceImpl implements PembeliService {
         if (data != null) {
             data.setNama_pembeli(param.getNama_pembeli() == null ? data.getNama_pembeli() : param.getNama_pembeli());
             data.setJk(param.getJk() != null ? param.getJk() : data.getJk());
-            data.setNo_telp(param.getNo_telp() != null ? param.getNo_telp() : data.getNo_telp());
+            data.setNo_telp(param.getNo_telp() != null? param.getNo_telp() : data.getNo_telp());
             data.setAlamat(param.getAlamat() != null ? param.getAlamat() : data.getAlamat());
 
 

@@ -23,7 +23,7 @@ public class PembeliController {
         return new ResponseEntity<>(Service.save(param), HttpStatus.OK);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/update/{id_pembeli}")
     public ResponseEntity<?> updateData(@PathVariable Integer id_pembeli,
                                         @RequestBody PembeliDTO param){
        PembeliDTO data = Service.update(param, id_pembeli);
@@ -35,18 +35,14 @@ public class PembeliController {
         }
     }
 
-    @GetMapping("/find-by-id/{id}")
+    @GetMapping("/find-by-id/{id_pembeli}")
     public ResponseEntity<?> findById(@PathVariable Integer id_pembeli){
         return new ResponseEntity<>(Service.findById(id_pembeli), HttpStatus.OK);
     }
 
-    @GetMapping("/find-by-id")
-    public ResponseEntity<?> findById2(@RequestParam(name = "id_pembeli") Integer id_pembeli){
-        return new ResponseEntity<>(Service.findById(id_pembeli), HttpStatus.OK);
+    
 
-    }
-
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id_pembeli}")
     public ResponseEntity<?> deleteData(@PathVariable Integer id_pembeli) {
         if (Service.delete(id_pembeli)) {
             return new ResponseEntity<>(HttpStatus.OK);

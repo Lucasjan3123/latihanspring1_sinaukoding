@@ -24,7 +24,7 @@ public class SupplierController
         return new ResponseEntity<>(Service.save(param), HttpStatus.OK);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/update/{id_supplier}")
     public ResponseEntity<?> updateData(@PathVariable Integer id_supplier,
                                         @RequestBody SupplierDTO param){
         SupplierDTO data = Service.update(param, id_supplier);
@@ -36,7 +36,7 @@ public class SupplierController
         }
     }
 
-    @GetMapping("/find-by-id/{id}")
+    @GetMapping("/find-by-id/{id_supplier}")
     public ResponseEntity<?> findById(@PathVariable Integer id_supplier){
         return new ResponseEntity<>(Service.findById(id_supplier), HttpStatus.OK);
     }
@@ -47,7 +47,7 @@ public class SupplierController
 
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id_supplier}")
     public ResponseEntity<?> deleteData(@PathVariable Integer id_supplier) {
         if (Service.delete(id_supplier)) {
             return new ResponseEntity<>(HttpStatus.OK);

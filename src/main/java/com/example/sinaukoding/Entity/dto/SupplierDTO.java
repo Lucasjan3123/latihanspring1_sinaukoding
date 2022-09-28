@@ -8,6 +8,6 @@ import org.hibernate.type.descriptor.sql.VarcharTypeDescriptor;
 public class SupplierDTO {
     private Integer id_supplier;
     private String nama_supplier;
-    private Character no_telp;
+    private Integer no_telp;
     private String alamat;
 }

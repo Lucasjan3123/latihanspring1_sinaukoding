@@ -19,7 +19,7 @@ public class Supplier {
     @Column
     private String nama_supplier;
     @Column
-    private Character no_telp;
+    private Integer no_telp;
     @Column
     private String alamat;
 
