@@ -1,10 +1,10 @@
-package com.example.sinaukoding.Service.implemen;
+package com.example.Sinaukoding.Service.implemen;
 
-import com.example.sinaukoding.Entity.Barang;
-import com.example.sinaukoding.Entity.Mapping.BarangMapping;
-import com.example.sinaukoding.Entity.dto.BarangDTO;
-import com.example.sinaukoding.Repository.BarangRepository;
-import com.example.sinaukoding.Service.BarangService;
+import com.example.Sinaukoding.Entity.Barang;
+import com.example.Sinaukoding.Entity.Mapping.BarangMapping;
+import com.example.Sinaukoding.Entity.dto.BarangDTO;
+import com.example.Sinaukoding.Repository.BarangRepository;
+import com.example.Sinaukoding.Service.BarangService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

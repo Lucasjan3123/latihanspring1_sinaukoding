@@ -1,4 +1,4 @@
-package com.example.sinaukoding.Entity;
+package com.example.Sinaukoding.Entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,10 +17,10 @@ public class Supplier {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_supplier;
     @Column
-    private VarcharTypeDescriptor nama_supplier;
+    private String nama_supplier;
     @Column
     private Character no_telp;
     @Column
-    private VarcharTypeDescriptor alamat;
+    private String alamat;
 
 }

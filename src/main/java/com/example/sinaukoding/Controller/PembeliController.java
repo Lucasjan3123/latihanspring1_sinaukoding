@@ -1,7 +1,7 @@
-package com.example.sinaukoding.Controller;
+package com.example.Sinaukoding.Controller;
 
-import com.example.sinaukoding.Entity.dto.PembeliDTO;
-import com.example.sinaukoding.Service.implemen.PembeliServiceImpl;
+import com.example.Sinaukoding.Entity.dto.PembeliDTO;
+import com.example.Sinaukoding.Service.implemen.PembeliServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

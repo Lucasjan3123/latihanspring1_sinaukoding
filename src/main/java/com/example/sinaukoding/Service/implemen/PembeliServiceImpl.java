@@ -1,10 +1,10 @@
-package com.example.sinaukoding.Service.implemen;
+package com.example.Sinaukoding.Service.implemen;
 
-import com.example.sinaukoding.Entity.Mapping.PembeliMapping;
-import com.example.sinaukoding.Entity.dto.PembeliDTO;
-import com.example.sinaukoding.Entity.Pembeli;
-import com.example.sinaukoding.Repository.PembeliRepository;
-import com.example.sinaukoding.Service.PembeliService;
+import com.example.Sinaukoding.Entity.Mapping.PembeliMapping;
+import com.example.Sinaukoding.Entity.Pembeli;
+import com.example.Sinaukoding.Entity.dto.PembeliDTO;
+import com.example.Sinaukoding.Repository.PembeliRepository;
+import com.example.Sinaukoding.Service.PembeliService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
-package com.example.sinaukoding.Entity.Mapping;
+package com.example.Sinaukoding.Entity.Mapping;
 
-import com.example.sinaukoding.Entity.Pembeli;
-import com.example.sinaukoding.Entity.dto.PembeliDTO;
+import com.example.Sinaukoding.Entity.Pembeli;
+import com.example.Sinaukoding.Entity.dto.PembeliDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

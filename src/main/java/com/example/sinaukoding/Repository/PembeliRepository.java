@@ -1,5 +1,5 @@
-package com.example.sinaukoding.Repository;
-import com.example.sinaukoding.Entity.Pembeli;
+package com.example.Sinaukoding.Repository;
+import com.example.Sinaukoding.Entity.Pembeli;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

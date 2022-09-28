@@ -1,4 +1,4 @@
-package com.example.sinaukoding.Entity;
+package com.example.Sinaukoding.Entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +18,7 @@ public class Pembeli {
     private Integer id_pembeli;
 
     @Column
-    private VarcharTypeDescriptor nama_pembeli;
+    private String nama_pembeli;
     @Column
     private Character jk;
     @Column

@@ -1,4 +1,4 @@
-package com.example.sinaukoding.Entity;
+package com.example.Sinaukoding.Entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +18,7 @@ public class Barang {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id_barang;
     @Column
-    private VarcharTypeDescriptor nama_barang;
+    private String nama_barang;
     @Column
     private Integer harga;
     @Column

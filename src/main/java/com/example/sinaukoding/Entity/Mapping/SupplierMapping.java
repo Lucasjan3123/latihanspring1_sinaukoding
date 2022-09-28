@@ -1,7 +1,7 @@
-package com.example.sinaukoding.Entity.Mapping;
+package com.example.Sinaukoding.Entity.Mapping;
 
-import com.example.sinaukoding.Entity.Supplier;
-import com.example.sinaukoding.Entity.dto.SupplierDTO;
+import com.example.Sinaukoding.Entity.Supplier;
+import com.example.Sinaukoding.Entity.dto.SupplierDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
