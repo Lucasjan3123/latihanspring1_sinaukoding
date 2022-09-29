@@ -3,16 +3,17 @@ package com.example.sinaukoding.Service.implemen;
 import com.example.sinaukoding.Entity.Barang;
 import com.example.sinaukoding.Entity.Mapping.BarangMapping;
 import com.example.sinaukoding.Entity.Mapping.SupplierMapping;
-import com.example.sinaukoding.Entity.Mapping.TransaksiMapping;
 import com.example.sinaukoding.Entity.Supplier;
-import com.example.sinaukoding.Entity.Transaksi;
 import com.example.sinaukoding.Entity.dto.BarangDTO;
 import com.example.sinaukoding.Repository.BarangRepository;
 import com.example.sinaukoding.Repository.SupplierRepository;
 import com.example.sinaukoding.Repository.TransaksiRepository;
 import com.example.sinaukoding.Service.BarangService;
+import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -23,6 +24,7 @@ public class BarangServiceImpl implements BarangService {
     private SupplierRepository supplierRepository;
     @Autowired
     private TransaksiRepository transaksiRepository;
+    @Transactional
     @Override
     public BarangDTO save(BarangDTO param) {
         Supplier supplier = SupplierMapping.instance.toEntity(param.getSupplier());
@@ -39,13 +41,12 @@ public class BarangServiceImpl implements BarangService {
 
         return BarangMapping.instance.toDto(data);
     }
-
-
+    @Transactional
     @Override
     public List<BarangDTO> findAllData() {
         return BarangMapping.instance.toListDto(repository.findAll());
     }
-
+    @Transactional
     @Override
     public BarangDTO update(BarangDTO param, Integer id_barang) {
         Barang data = repository.findById(id_barang).orElse(null);
@@ -61,7 +62,7 @@ public class BarangServiceImpl implements BarangService {
 
         return BarangMapping.instance.toDto(data);
     }
-
+    @Transactional
     @Override
     public Boolean delete(Integer id_barang) {
         Barang data = repository.findById(id_barang).orElse(null);

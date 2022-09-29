@@ -1,11 +1,15 @@
 package com.example.sinaukoding.Controller;
 
+import com.example.sinaukoding.Entity.Pembayaran;
 import com.example.sinaukoding.Entity.dto.PembayaranDTO;
 import com.example.sinaukoding.Service.implemen.PembayaranServiceImpl;
+import com.example.sinaukoding.common.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/pembayaran")
@@ -14,8 +18,9 @@ public class PembayaranController {
     private PembayaranServiceImpl Service;
 
     @GetMapping("/find-all")
-    public ResponseEntity<?> findAllData(){
-        return new ResponseEntity<>(Service.findAllData(), HttpStatus.OK);
+    public Response findAllData(){
+        List<PembayaranDTO> data= Service.findAllData();
+        return new Response(data, "Get All data pembayaran",data.size(),HttpStatus.OK);
     }
 
     @PostMapping("/create")

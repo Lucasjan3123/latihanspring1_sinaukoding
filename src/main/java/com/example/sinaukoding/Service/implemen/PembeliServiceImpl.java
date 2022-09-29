@@ -15,6 +15,7 @@ import com.example.sinaukoding.Service.PembeliService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 @Service
 public class PembeliServiceImpl implements PembeliService {
@@ -24,19 +25,19 @@ public class PembeliServiceImpl implements PembeliService {
     private TransaksiRepository transaksiRepository;
 
 
-
+    @Transactional
     @Override
     public PembeliDTO save(PembeliDTO param) {
         Pembeli data = repository.save(PembeliMapping.instance.toEntity(param));
         return PembeliMapping.instance.toDto(data);
     }
-
+    @Transactional
     @Override
     public List<PembeliDTO> findAllData() {
         return PembeliMapping.instance.toListDto(repository.findAll());
 
     }
-
+    @Transactional
     @Override
     public PembeliDTO update(PembeliDTO param, Integer id_pembeli) {
         Pembeli data = repository.findById(id_pembeli).orElse(null);
@@ -53,7 +54,7 @@ public class PembeliServiceImpl implements PembeliService {
 
         return PembeliMapping.instance.toDto(data);
     }
-
+    @Transactional
     @Override
     public Boolean delete(Integer id_pembeli) {
         Pembeli data = repository.findById(id_pembeli).orElse(null);
@@ -65,7 +66,7 @@ public class PembeliServiceImpl implements PembeliService {
 
         return false;
     }
-
+    @Transactional
     @Override
     public PembeliDTO findById(Integer id_pembeli) {
         return PembeliMapping.instance.toDto (repository.findById(id_pembeli).orElse(null));

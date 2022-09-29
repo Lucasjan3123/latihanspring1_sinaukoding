@@ -1,11 +1,15 @@
 package com.example.sinaukoding.Controller;
 
 import com.example.sinaukoding.Entity.dto.BarangDTO;
+import com.example.sinaukoding.Entity.dto.PembayaranDTO;
 import com.example.sinaukoding.Service.implemen.BarangServiceImpl;
+import com.example.sinaukoding.common.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -16,8 +20,10 @@ public class BarangController {
     private BarangServiceImpl Service;
 
     @GetMapping("/find-all")
-    public ResponseEntity<?> findAllData(){
-        return new ResponseEntity<>(Service.findAllData(), HttpStatus.OK);
+    public Response findAllData(){
+        List<BarangDTO> data= Service.findAllData();
+        return new Response(data, "Get All data pembayaran",data.size(),HttpStatus.OK);
+
     }
 
     @PostMapping( "/create")
@@ -39,8 +45,8 @@ public class BarangController {
     }
 
     @GetMapping("/find-by-id/{id_barang}")
-    public ResponseEntity<?> findById(@PathVariable Integer id_barang){
-        return new ResponseEntity<>(Service.findById(id_barang), HttpStatus.OK);
+    public Response findById(@PathVariable Integer id_barang){
+        return new Response(Service.findById(id_barang), "berhasil mengambil data",HttpStatus.OK);
     }
 
     @GetMapping("/find-by-id")
@@ -50,11 +56,11 @@ public class BarangController {
     }
 
     @DeleteMapping("/delete/{id_barang}")
-    public ResponseEntity<?> deleteData(@PathVariable Integer id_barang) {
+    public Response deleteData(@PathVariable Integer id_barang) {
         if (Service.delete(id_barang)) {
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new Response( "data berhasil dihapus",HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
+            return new Response(  "data berhasil dihapus",HttpStatus.BAD_REQUEST);
         }
     }
    }

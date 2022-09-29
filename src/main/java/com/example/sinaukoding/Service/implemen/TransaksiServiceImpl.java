@@ -11,6 +11,7 @@ import com.example.sinaukoding.Service.TransaksiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 @Service
 public class TransaksiServiceImpl implements TransaksiService {
@@ -22,6 +23,7 @@ public class TransaksiServiceImpl implements TransaksiService {
     private PembayaranRepository pembayaranRepository;
     @Autowired
     private PembeliRepository pembeliRepository;
+    @Transactional
     @Override
     public TransaksiDTO save(TransaksiDTO param) {
         Barang barang = BarangMapping.instance.toEntity(param.getBarang());
@@ -33,12 +35,7 @@ public class TransaksiServiceImpl implements TransaksiService {
 
             data.getBarang().setId_barang(barang.getId_barang());
         }
-        Pembayaran pembayaran = PembayaranMapping.instance.toEntity(param.getPembayaran());
-        if (param.getPembayaran() != null) {
-            pembayaran = pembayaranRepository.save(pembayaran);
 
-            data.getPembayaran().setId_pembayaran(pembayaran.getId_pembayaran());
-        }
         Pembeli pembeli = PembeliMapping.instance.toEntity(param.getPembeli());
         if (param.getPembeli() != null) {
             pembeli = pembeliRepository.save(pembeli);
@@ -50,13 +47,13 @@ public class TransaksiServiceImpl implements TransaksiService {
 
         return TransaksiMapping.instance.toDto(data);
     }
-
+    @Transactional
     @Override
     public List<TransaksiDTO> findAllData() {
         return TransaksiMapping.instance.toListDto(repository.findAll());
 
     }
-
+    @Transactional
     @Override
     public TransaksiDTO update(TransaksiDTO param, Integer id_transaksi) {
         Transaksi data = repository.findById(id_transaksi).orElse(null);
@@ -73,7 +70,7 @@ public class TransaksiServiceImpl implements TransaksiService {
         return TransaksiMapping.instance.toDto(data);
 
     }
-
+    @Transactional
     @Override
     public Boolean delete(Integer id_transaksi) {
         Transaksi data = repository.findById(id_transaksi).orElse(null);
@@ -86,7 +83,7 @@ public class TransaksiServiceImpl implements TransaksiService {
         return false;
 
     }
-
+    @Transactional
     @Override
     public TransaksiDTO findById(Integer id_transaksi) {
         return TransaksiMapping.instance.toDto (repository.findById(id_transaksi).orElse(null));

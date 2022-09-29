@@ -23,8 +23,8 @@ public class Pembayaran {
     private  Date tgl_bayar;
     @Column(columnDefinition = "INT(11)")
     private Integer total_bayar;
-    @Column (columnDefinition = "INT(11)")
-    private  Integer id_transaksi;
-    @OneToMany(mappedBy = "pembayaran")
-    private List<Transaksi> transaksiList;
+
+    @ManyToOne
+    @JoinColumn(name = "id_transaksi")
+    private  Transaksi transaksi;
 }

@@ -27,9 +27,8 @@ public class Transaksi {
     @JoinColumn (name = "id_barang")
     private Barang barang;
 
-    @ManyToOne
-    @JoinColumn(name = "id_pembayaran")
-    private  Pembayaran pembayaran;
+    @OneToMany(mappedBy = "transaksi")
+    private List<Pembayaran> pembayaranList;
 
     @ManyToOne
     @JoinColumn(name = "id_pembeli")

@@ -8,6 +8,7 @@ import com.example.sinaukoding.Service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 @Service
 public class SupplierServiceImpl implements SupplierService {
@@ -20,14 +21,14 @@ public class SupplierServiceImpl implements SupplierService {
         return SupplierMapping.instance.toDto(data);
 
     }
-
+    @Transactional
     @Override
     public List<SupplierDTO> findAllData() {
         return SupplierMapping.instance.toListDto(repository.findAll());
 
 
     }
-
+    @Transactional
     @Override
     public SupplierDTO update(SupplierDTO param, Integer id_supplier) {
         Supplier data = repository.findById(id_supplier).orElse(null);
@@ -45,7 +46,7 @@ public class SupplierServiceImpl implements SupplierService {
         return SupplierMapping.instance.toDto(data);
 
     }
-
+    @Transactional
     @Override
     public Boolean delete(Integer id_supplier) {
         Supplier data = repository.findById(id_supplier).orElse(null);
@@ -57,7 +58,7 @@ public class SupplierServiceImpl implements SupplierService {
 
         return false;
     }
-
+    @Transactional
     @Override
     public SupplierDTO findById(Integer id_supplier) {
         return SupplierMapping.instance.toDto (repository.findById(id_supplier).orElse(null));
