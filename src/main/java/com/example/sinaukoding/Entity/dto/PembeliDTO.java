@@ -10,5 +10,4 @@ public class PembeliDTO {
     private Character jk;
     private Integer no_telp;
     private String alamat;
-    private TransaksiDTO transaksi;
 }

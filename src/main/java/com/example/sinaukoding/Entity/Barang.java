@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import  lombok.Setter;
 
 import  javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table (name = "barang")
@@ -24,7 +25,7 @@ public class Barang {
     @ManyToOne
     @JoinColumn (name = "id_supplier")
     private Supplier supplier;
-    @ManyToOne
-    @JoinColumn (name = "id_transaksi")
-    private Transaksi transaksi;
+    @OneToMany(mappedBy = "barang")
+    private List<Transaksi> transaksiList;
+
 }

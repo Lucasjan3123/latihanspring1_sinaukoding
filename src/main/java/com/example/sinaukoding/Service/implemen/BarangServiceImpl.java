@@ -35,15 +35,6 @@ public class BarangServiceImpl implements BarangService {
             data.getSupplier().setId_supplier(supplier.getId_supplier());
         }
 
-        Transaksi transaksi = TransaksiMapping.instance.toEntity(param.getTransaksi());
-
-
-        if (param.getTransaksi() != null) {
-            transaksi= transaksiRepository.save(transaksi);
-
-            data.getTransaksi().setId_transaksi(transaksi.getId_transaksi());
-        }
-
         data = repository.save(data);
 
         return BarangMapping.instance.toDto(data);

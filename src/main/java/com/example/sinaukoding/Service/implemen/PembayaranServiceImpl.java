@@ -1,11 +1,7 @@
 package com.example.sinaukoding.Service.implemen;
 
-import com.example.sinaukoding.Entity.Barang;
-import com.example.sinaukoding.Entity.Mapping.BarangMapping;
 import com.example.sinaukoding.Entity.Mapping.PembayaranMapping;
-import com.example.sinaukoding.Entity.Mapping.TransaksiMapping;
 import com.example.sinaukoding.Entity.Pembayaran;
-import com.example.sinaukoding.Entity.Transaksi;
 import com.example.sinaukoding.Entity.dto.PembayaranDTO;
 import com.example.sinaukoding.Repository.PembayaranRepository;
 import com.example.sinaukoding.Repository.TransaksiRepository;
@@ -24,18 +20,8 @@ public class PembayaranServiceImpl implements PembayaranService {
 
     @Override
     public PembayaranDTO save(PembayaranDTO param) {
-        Transaksi transaksi = TransaksiMapping.instance.toEntity(param.getTransaksi());
-        Pembayaran data = PembayaranMapping.instance.toEntity(param);
-        if (param.getTransaksi() != null) {
-            transaksi= transaksiRepository.save(transaksi);
-
-            data.getTransaksi().setId_transaksi(transaksi.getId_transaksi());
-        }
-
-        data = repository.save(data);
-
+        Pembayaran data = repository.save(PembayaranMapping.instance.toEntity(param));
         return PembayaranMapping.instance.toDto(data);
-
     }
 
     @Override

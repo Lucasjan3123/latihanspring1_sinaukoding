@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "pembayaran")
@@ -24,7 +25,6 @@ public class Pembayaran {
     private Integer total_bayar;
     @Column (columnDefinition = "INT(11)")
     private  Integer id_transaksi;
-    @ManyToOne
-    @JoinColumn (name = "id_transaksi")
-    private Transaksi transaksi;
+    @OneToMany(mappedBy = "pembayaran")
+    private List<Transaksi> transaksiList;
 }

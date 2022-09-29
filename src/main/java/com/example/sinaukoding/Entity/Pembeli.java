@@ -6,6 +6,7 @@ import lombok.Setter;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "pembeli")
@@ -25,8 +26,8 @@ public class Pembeli {
     private Integer no_telp;
     @Column
     private String alamat;
-    @ManyToOne
-    @JoinColumn (name = "id_transaksi")
-    private Transaksi transaksi;
+
+    @OneToMany (mappedBy = "pembeli")
+    private List<Transaksi> transaksiList;
 
 }

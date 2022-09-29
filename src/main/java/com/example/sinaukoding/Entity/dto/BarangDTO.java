@@ -11,7 +11,7 @@ public class BarangDTO {
     private Integer harga;
     private Integer stok;
     private SupplierDTO supplier;
-    private TransaksiDTO transaksi;
+
 
 
 }
