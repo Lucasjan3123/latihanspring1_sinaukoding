@@ -23,7 +23,7 @@ public class TransaksiController {
         return new ResponseEntity<>(Service.save(param), HttpStatus.OK);
     }
 
-    @PutMapping("/update/{id_pembeli}")
+    @PutMapping("/update/{id_transaksi}")
     public ResponseEntity<?> updateData(@PathVariable Integer id_transaksi,
                                         @RequestBody TransaksiDTO param){
         TransaksiDTO data = Service.update(param, id_transaksi);

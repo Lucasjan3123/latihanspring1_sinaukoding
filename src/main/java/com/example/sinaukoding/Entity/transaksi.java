@@ -18,19 +18,20 @@ public class Transaksi {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "INT(11)")
     private Integer id_transaksi;
-
-    @Column(columnDefinition = "INT(11)")
-    private  Integer id_barang;
-    @Column(columnDefinition = "INT(11)")
-    private Integer id_pembeli;
     @Column
     private Date tanggal;
     @Column (columnDefinition = "VARCHAR(100)")
     private  String keterangan;
-    @OneToMany(mappedBy = "transaksi")
-    private List<Barang> barangList;
-    @OneToMany(mappedBy = "transaksi")
-    private List<Pembayaran> pembayaranList;
-    @OneToMany(mappedBy = "transaksi")
-    private List<Pembeli> pembeliList;
+
+    @ManyToOne
+    @JoinColumn (name = "id_barang")
+    private Barang barang;
+
+    @ManyToOne
+    @JoinColumn(name = "id_pembayaran")
+    private  Pembayaran pembayaran;
+
+    @ManyToOne
+    @JoinColumn(name = "id_pembeli")
+    private  Pembeli pembeli;
 }

@@ -16,15 +16,16 @@ import java.util.List;
 public class Pembeli {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "INT(11)")
     private Integer id_pembeli;
 
-    @Column
+    @Column(columnDefinition = "VARCHAR(30)")
     private String nama_pembeli;
-    @Column
+    @Column(columnDefinition = "CHAR(1)")
     private Character jk;
-    @Column
+    @Column(columnDefinition = "CHAR(14)")
     private Integer no_telp;
-    @Column
+    @Column(columnDefinition = "VARCHAR(30)")
     private String alamat;
 
     @OneToMany (mappedBy = "pembeli")

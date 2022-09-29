@@ -15,12 +15,13 @@ import java.util.List;
 public class Barang {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "INT(11)")
     private Integer id_barang;
-    @Column
+    @Column(columnDefinition = "VARCHAR(20)")
     private String nama_barang;
-    @Column
+    @Column(columnDefinition = "INT(11)")
     private Integer harga;
-    @Column
+    @Column(columnDefinition = "INT(11)")
     private Integer stok;
     @ManyToOne
     @JoinColumn (name = "id_supplier")

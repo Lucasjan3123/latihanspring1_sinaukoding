@@ -15,12 +15,13 @@ import java.util.List;
 public class Supplier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "INT(11)")
     private Integer id_supplier;
-    @Column
+    @Column(columnDefinition = "VARCHAR(30)")
     private String nama_supplier;
-    @Column
+    @Column(columnDefinition = "CHAR(13)")
     private Integer no_telp;
-    @Column
+    @Column(columnDefinition = "VARCHAR(100)")
     private String alamat;
    @OneToMany(mappedBy = "supplier")
     private List<Barang>barangList;
