@@ -1,4 +1,4 @@
-package com.example.Sinaukoding.Entity.dto;
+package com.example.sinaukoding.Entity.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,4 +10,5 @@ public class PembeliDTO {
     private Character jk;
     private Integer no_telp;
     private String alamat;
+    private TransaksiDTO transaksi;
 }

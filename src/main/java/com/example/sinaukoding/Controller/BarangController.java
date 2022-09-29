@@ -1,7 +1,7 @@
-package com.example.Sinaukoding.Controller;
+package com.example.sinaukoding.Controller;
 
-import com.example.Sinaukoding.Entity.dto.BarangDTO;
-import com.example.Sinaukoding.Service.implemen.BarangServiceImpl;
+import com.example.sinaukoding.Entity.dto.BarangDTO;
+import com.example.sinaukoding.Service.implemen.BarangServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

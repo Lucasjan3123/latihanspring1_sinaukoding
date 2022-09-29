@@ -1,4 +1,4 @@
-package com.example.Sinaukoding.Entity;
+package com.example.sinaukoding.Entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,5 +25,8 @@ public class Pembeli {
     private Integer no_telp;
     @Column
     private String alamat;
+    @ManyToOne
+    @JoinColumn (name = "id_transaksi")
+    private Transaksi transaksi;
 
 }

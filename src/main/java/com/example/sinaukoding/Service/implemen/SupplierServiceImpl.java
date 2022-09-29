@@ -1,10 +1,10 @@
-package com.example.Sinaukoding.Service.implemen;
+package com.example.sinaukoding.Service.implemen;
 
-import com.example.Sinaukoding.Entity.Mapping.SupplierMapping;
-import com.example.Sinaukoding.Entity.Supplier;
-import com.example.Sinaukoding.Entity.dto.SupplierDTO;
-import com.example.Sinaukoding.Repository.SupplierRepository;
-import com.example.Sinaukoding.Service.SupplierService;
+import com.example.sinaukoding.Entity.Mapping.SupplierMapping;
+import com.example.sinaukoding.Entity.Supplier;
+import com.example.sinaukoding.Entity.dto.SupplierDTO;
+import com.example.sinaukoding.Repository.SupplierRepository;
+import com.example.sinaukoding.Service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

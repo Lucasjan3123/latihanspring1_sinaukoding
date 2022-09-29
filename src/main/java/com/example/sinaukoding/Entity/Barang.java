@@ -1,10 +1,8 @@
-package com.example.Sinaukoding.Entity;
+package com.example.sinaukoding.Entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import  lombok.Setter;
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
-import org.hibernate.type.descriptor.sql.VarcharTypeDescriptor;
 
 import  javax.persistence.*;
 
@@ -23,7 +21,10 @@ public class Barang {
     private Integer harga;
     @Column
     private Integer stok;
-    @Column
-    private Integer id_supplier;
-
+    @ManyToOne
+    @JoinColumn (name = "id_supplier")
+    private Supplier supplier;
+    @ManyToOne
+    @JoinColumn (name = "id_transaksi")
+    private Transaksi transaksi;
 }

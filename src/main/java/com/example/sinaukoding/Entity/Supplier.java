@@ -1,11 +1,11 @@
-package com.example.Sinaukoding.Entity;
+package com.example.sinaukoding.Entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.type.descriptor.sql.VarcharTypeDescriptor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "supplier")
@@ -22,5 +22,6 @@ public class Supplier {
     private Integer no_telp;
     @Column
     private String alamat;
-
+   @OneToMany(mappedBy = "supplier")
+    private List<Barang>barangList;
 }

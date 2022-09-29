@@ -1,6 +1,6 @@
-package com.example.Sinaukoding.Service;
+package com.example.sinaukoding.Service;
 
-import com.example.Sinaukoding.Entity.dto.SupplierDTO;
+import com.example.sinaukoding.Entity.dto.SupplierDTO;
 
 import java.util.List;
 

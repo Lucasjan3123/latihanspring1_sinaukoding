@@ -1,5 +1,5 @@
-package com.example.Sinaukoding.Service;
-import com.example.Sinaukoding.Entity.dto.PembeliDTO;
+package com.example.sinaukoding.Service;
+import com.example.sinaukoding.Entity.dto.PembeliDTO;
 
 import java.util.List;
 

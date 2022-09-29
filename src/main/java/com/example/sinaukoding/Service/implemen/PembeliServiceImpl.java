@@ -1,10 +1,15 @@
-package com.example.Sinaukoding.Service.implemen;
+package com.example.sinaukoding.Service.implemen;
 
-import com.example.Sinaukoding.Entity.Mapping.PembeliMapping;
-import com.example.Sinaukoding.Entity.Pembeli;
-import com.example.Sinaukoding.Entity.dto.PembeliDTO;
-import com.example.Sinaukoding.Repository.PembeliRepository;
-import com.example.Sinaukoding.Service.PembeliService;
+import com.example.sinaukoding.Entity.Mapping.PembayaranMapping;
+import com.example.sinaukoding.Entity.Mapping.PembeliMapping;
+import com.example.sinaukoding.Entity.Mapping.TransaksiMapping;
+import com.example.sinaukoding.Entity.Pembayaran;
+import com.example.sinaukoding.Entity.Pembeli;
+import com.example.sinaukoding.Entity.Transaksi;
+import com.example.sinaukoding.Entity.dto.PembeliDTO;
+import com.example.sinaukoding.Repository.PembeliRepository;
+import com.example.sinaukoding.Repository.TransaksiRepository;
+import com.example.sinaukoding.Service.PembeliService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,13 +18,24 @@ import java.util.List;
 public class PembeliServiceImpl implements PembeliService {
     @Autowired
     private PembeliRepository repository;
+    @Autowired
+    private TransaksiRepository transaksiRepository;
+
 
 
     @Override
     public PembeliDTO save(PembeliDTO param) {
-        Pembeli data = repository.save(PembeliMapping.instance.toEntity(param));
-        return PembeliMapping.instance.toDto(data);
+        Transaksi transaksi = TransaksiMapping.instance.toEntity(param.getTransaksi());
+        Pembeli data = PembeliMapping.instance.toEntity(param);
+        if (param.getTransaksi() != null) {
+            transaksi= transaksiRepository.save(transaksi);
 
+            data.getTransaksi().setId_transaksi(transaksi.getId_transaksi());
+        }
+
+        data = repository.save(data);
+
+        return PembeliMapping.instance.toDto(data);
 
     }
 
