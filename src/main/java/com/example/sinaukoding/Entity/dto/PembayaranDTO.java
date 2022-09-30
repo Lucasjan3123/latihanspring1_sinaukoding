@@ -11,7 +11,6 @@ public class PembayaranDTO {
     private Integer id_pembayaran;
     private  Date tgl_bayar;
     private Integer total_bayar;
-    private  Integer id_transaksi;
     private TransaksiDTO transaksi;
 
 

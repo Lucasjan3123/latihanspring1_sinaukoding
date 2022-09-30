@@ -1,6 +1,5 @@
 package com.example.sinaukoding.Controller;
 
-import com.example.sinaukoding.Entity.Pembayaran;
 import com.example.sinaukoding.Entity.dto.PembayaranDTO;
 import com.example.sinaukoding.Service.implemen.PembayaranServiceImpl;
 import com.example.sinaukoding.common.Response;
@@ -41,11 +40,9 @@ public class PembayaranController {
     }
 
     @GetMapping("/find-by-id/{id_pembayaran}")
-    public ResponseEntity<?> findById(@PathVariable Integer id_pembayaran){
-        return new ResponseEntity<>(Service.findById(id_pembayaran), HttpStatus.OK);
+    public Response findById(@PathVariable Integer id_pembayaran){
+        return new Response(Service.findById(id_pembayaran), "berhasil mengambil data",HttpStatus.OK);
     }
-
-
 
     @DeleteMapping("/delete/{id_pembayaran}")
     public ResponseEntity<?> deleteData(@PathVariable Integer id_pembayaran) {

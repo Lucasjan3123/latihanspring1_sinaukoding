@@ -64,11 +64,19 @@ public class PembayaranServiceImpl implements PembayaranService {
     @Transactional
     @Override
     public Boolean delete(Integer id_pembayaran) {
-        return null;
+
+        Pembayaran data = repository.findById(id_pembayaran).orElse(null);
+
+        if (data != null){
+            repository.delete(data);
+            return true;
+        }
+
+        return false;
     }
     @Transactional
     @Override
     public PembayaranDTO findById(Integer id_pembayaran) {
-        return null;
+        return PembayaranMapping.instance.toDto(repository.findById(id_pembayaran).orElse(null));
     }
 }
